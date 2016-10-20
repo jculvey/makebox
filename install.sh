@@ -1,4 +1,14 @@
 # Requires vim and zsh to already be installed
+if [ "$(uname -a | grep -i ubuntu)" ]; then
+	sudo apt-get install -y zsh
+elif [ "$(uname)" == "Darwin" ]; then
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install tmux
+	brew install zsh
+else
+	# this is something else
+	echo "Not mac or ubuntu"
+fi
 
 # tmux
 cd
@@ -12,3 +22,5 @@ curl https://raw.githubusercontent.com/jculvey/vimfiles/master/bootstrap.sh | ba
 
 # Oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/jculvey/oh-my-zsh/master/tools/install.sh)"
+
+
